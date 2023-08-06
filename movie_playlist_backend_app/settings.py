@@ -28,14 +28,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = "django-insecure-$co-ar&sr&k633&aho$+waib+hzes0b8wvq8)#&g#4lp_s9gcg"
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
+# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
+ALLOWED_HOSTS = ["*"]
 
 STATIC_URL = "static/"
+# MEDIA_URL = "media/"
+
+# if DEBUG:
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, "movie-playlist-app/dist/assets")]
+# else:
+#     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "movie-playlist-app/dist/assets"),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "movie-playlist-app/dist"),)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 INSTALLED_APPS = [
@@ -160,3 +169,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
