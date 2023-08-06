@@ -35,9 +35,8 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "movie-playlist-app/dist/assets"),)
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "movie-playlist-app/dist/static"),)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -68,7 +67,7 @@ ROOT_URLCONF = "movie_playlist_backend_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "movie-playlist-app/dist/")],
+        "DIRS": [os.path.join(BASE_DIR, "movie-playlist-app/dist")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

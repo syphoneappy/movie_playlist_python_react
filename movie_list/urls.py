@@ -4,7 +4,7 @@ from . import views
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", views.index),
     path("data/", views.omdb_proxy),
     path("search/", views.serach_OMDB),
     path("create_user/", views.store_user_data),

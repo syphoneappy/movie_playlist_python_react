@@ -13,8 +13,9 @@ from .models import PrivateDetails, PublicDetails
 from django.shortcuts import get_object_or_404
 
 
+@api_view(["GET"])
 def index(request):
-    render(request, "index.html")
+    return render(request, "index.html")
 
 
 @api_view(["GET", "POST"])
