@@ -37,9 +37,9 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(
 STATIC_URL = "static/"
 # MEDIA_URL = "media/"
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "staticfiles"),
+    # os.path.join(BASE_DIR, "staticfiles"),
     (os.path.join(BASE_DIR, "dist", "assets")),
 ]
 
