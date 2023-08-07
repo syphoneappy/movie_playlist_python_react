@@ -78,7 +78,7 @@ ROOT_URLCONF = "movie_playlist_backend_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "dist")],
+        "DIRS": [os.path.join(BASE_DIR, "movie-playlist-app/dist")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
