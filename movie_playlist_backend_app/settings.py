@@ -31,23 +31,24 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = True
 # DEBUG = os.getenv("DEBUG", "False") == "True"
 
-# ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
+
 
 STATIC_URL = "static/"
 # MEDIA_URL = "media/"
 
-# if DEBUG:
-#     STATICFILES_DIRS = [os.path.join(BASE_DIR, "movie-playlist-app/dist/assets")]
-# else:
-#     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "movie-playlist-app/dist"),)
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "staticfiles"),
+    (os.path.join(BASE_DIR, "dist", "assets")),
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 INSTALLED_APPS = [
+    "debug_toolbar",
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -69,6 +70,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "movie_playlist_backend_app.urls"
@@ -76,7 +78,7 @@ ROOT_URLCONF = "movie_playlist_backend_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "movie-playlist-app/dist")],
+        "DIRS": [os.path.join(BASE_DIR, "dist")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -88,8 +90,14 @@ TEMPLATES = [
         },
     },
 ]
-
+TEMPLATE_LOADERS = [
+    ("django.template.loaders.filesystem.Loader", [os.path.join(BASE_DIR, "static")]),
+]
 WSGI_APPLICATION = "movie_playlist_backend_app.wsgi.application"
+
+STATICFILES_MIMETYPES = {
+    ".css": "text/css",
+}
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -111,7 +119,7 @@ DATABASES = {
     }
 }
 
-
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
 # DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
 # if DEVELOPMENT_MODE is True:
@@ -169,5 +177,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
