@@ -26,7 +26,7 @@ def omdb_proxy(request):
     try:
         api_key = "ab25bda2"
         page = request.GET.get("page")
-        api_url = f"http://www.omdbapi.com/?apikey={api_key}&s=world War&page={page}"
+        api_url = f"http://www.omdbapi.com/?apikey={api_key}&s=world&page={page}"
         response = requests.get(api_url)
         data = response.json()
         return Response(data)

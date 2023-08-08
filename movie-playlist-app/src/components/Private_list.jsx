@@ -11,7 +11,7 @@ const Private_list = () => {
     const getPrivateData = async () => {
         const authToken = localStorage.getItem("authToken")
         if(authToken){
-           const response = await Instance.get("/app/create_private/",{
+           const response = await Instance.get("/create_private/",{
                 headers:{
                     Authorization:`Token ${authToken}`
                 }

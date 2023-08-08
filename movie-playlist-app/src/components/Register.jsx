@@ -10,7 +10,7 @@ const Register = () => {
 
     const handleRegister = async () => {
         try{
-            const response = await Instance.post("/app/create_user/",{
+            const response = await Instance.post("/create_user/",{
                 username: username,
                 email:email,
                 password:password

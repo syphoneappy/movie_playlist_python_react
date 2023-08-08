@@ -11,7 +11,7 @@ const LoginPage = () => {
     const [loggedin,setIsloggedIn] = useState(false)
     const handlelogin = async () => {
         try{
-            const response = await Instance.post("/app/login/",{
+            const response = await Instance.post("/login/",{
                 username:username,
                 password:password,
             });

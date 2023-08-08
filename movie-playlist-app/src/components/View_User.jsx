@@ -8,7 +8,7 @@ const View_User = () => {
     const [publicdata,setData] = useState('')
     const getpublicDataupdated = async () => {
         try{
-            const response = await Instance.get('app/getallpublicdata/')
+            const response = await Instance.get('/getallpublicdata/')
             const data = Object.values(response.data)
             setData(data)
             console.log(data)

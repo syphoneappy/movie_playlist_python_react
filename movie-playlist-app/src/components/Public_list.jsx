@@ -10,7 +10,7 @@ const Public_list = () => {
     const getPublicData = async () => {
         const authToken = localStorage.getItem("authToken")
         if(authToken){
-           const response = await Instance.get("/app/create_public/",{
+           const response = await Instance.get("/create_public/",{
                 headers:{
                     Authorization:`Token ${authToken}`
                 }
@@ -27,7 +27,7 @@ const Public_list = () => {
 
     const delete_item = async (id) => {
         try{
-            const response = await Instance.delete(`app/deletePublicItem/${id}/`)  
+            const response = await Instance.delete(`/deletePublicItem/${id}/`)  
             getPublicData()
             window.alert(response.data.success)
         }catch(error){

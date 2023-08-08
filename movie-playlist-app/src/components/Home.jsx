@@ -15,7 +15,7 @@ const [notFoundMessage, setNotFoundMessage] = useState("");
 const getApiData = async (page, searchQuery = null) => {
 
   try {
-    const response = await Instance.get(searchQuery ? 'app/search/' : '/app/data/', {
+    const response = await Instance.get(searchQuery ? '/search/' : '/data/', {
       params: {
         page: page,
         ...(searchQuery && { s: searchQuery }),
@@ -37,7 +37,7 @@ const getApiData = async (page, searchQuery = null) => {
 
 const getSearchData = async (s,page) =>{
   try{
-    const response = await Instance.get('app/search/',{
+    const response = await Instance.get('/search/',{
       params:{
         s:s,
         page:page
@@ -61,7 +61,7 @@ const myPrivateList = async (imdbID,Title,Poster,Year,Type) => {
   const Years = Number(Year)
   const authToken = localStorage.getItem("authToken")
   try{
-    const response = await Instance.post('app/create_private/',{
+    const response = await Instance.post('/create_private/',{
       imdb:imdbID,
       Title: Title,
       Poster: Poster,
@@ -91,7 +91,7 @@ const myPublicList = async (imdbID,Title,Poster,Year,Type) => {
   const Years = Number(Year)
   const authToken = localStorage.getItem("authToken")
   try{
-    const response = await Instance.post('app/create_public/',{
+    const response = await Instance.post('/create_public/',{
       imdb:imdbID,
       Title:Title,
       Poster:Poster,
@@ -123,7 +123,7 @@ useEffect(() => {
 useEffect(() => {
   const authToken = localStorage.getItem("authToken")
   if (authToken){
-    Instance.get('app/validate/',{
+    Instance.get('/validate/',{
       headers:{
         Authorization:`Token ${authToken}`
       }
