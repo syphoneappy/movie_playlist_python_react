@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
     "http://127.0.0.1:8000",
     "https://shark-app-teuhd.ondigitalocean.app",
     "http://shark-app-teuhd.ondigitalocean.app",
+    "shark-app-teuhd.ondigitalocean.app"
 ]
 # ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
 
