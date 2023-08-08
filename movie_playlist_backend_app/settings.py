@@ -32,13 +32,14 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "http://127.0.0.1:8000",
+    "127.0.0.1:8000",
     "https://shark-app-teuhd.ondigitalocean.app",
     "http://shark-app-teuhd.ondigitalocean.app",
     "shark-app-teuhd.ondigitalocean.app"
 ]
 # ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 
 STATIC_URL = "static/"
@@ -116,7 +117,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173","shark-app-teuhd.ondigitalocean.app"]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
