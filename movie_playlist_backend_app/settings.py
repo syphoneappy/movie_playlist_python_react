@@ -28,19 +28,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = "django-insecure-$co-ar&sr&k633&aho$+waib+hzes0b8wvq8)#&g#4lp_s9gcg"
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.getenv("DEBUG", "False") == "True"
-ALLOWED_HOSTS = [
-    "http://127.0.0.1:8000",
-    "127.0.0.1:8000",
-    "https://octopus-app-p9wjm.ondigitalocean.app",
-    "https://octopus-app-p9wjm.ondigitalocean.app",
-    "shark-app-teuhd.ondigitalocean.app",
-]
+DEBUG = True
+# DEBUG = os.getenv("DEBUG", "False") == "True"
+# ALLOWED_HOSTS = [
+#     "http://127.0.0.1:8000",
+#     "127.0.0.1:8000",
+#     "https://octopus-app-p9wjm.ondigitalocean.app",
+#     "https://octopus-app-p9wjm.ondigitalocean.app",
+#     "octopus-app-p9wjm.ondigitalocean.app",
+# ]
 # ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
 
 # CORS_ALLOW_ALL_ORIGINS = True
 
+ALLOWED_HOSTS = ["*"]
 
 STATIC_URL = "static/"
 MEDIA_URL = "media/"
@@ -116,11 +117,11 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ],
 }
-
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
     "https://octopus-app-p9wjm.ondigitalocean.app",
     "http://octopus-app-p9wjm.ondigitalocean.app",
+    "http://127.0.0.1:8000",
 ]
 
 # Database
