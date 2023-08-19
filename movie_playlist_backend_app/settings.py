@@ -30,18 +30,18 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # DEBUG = os.getenv("DEBUG", "False") == "True"
-# ALLOWED_HOSTS = [
-#     "http://127.0.0.1:8000",
-#     "127.0.0.1:8000",
-#     "https://octopus-app-p9wjm.ondigitalocean.app",
-#     "https://octopus-app-p9wjm.ondigitalocean.app",
-#     "octopus-app-p9wjm.ondigitalocean.app",
-# ]
+ALLOWED_HOSTS = [
+    "http://127.0.0.1:8000",
+    "127.0.0.1:8000",
+    "https://octopus-app-p9wjm.ondigitalocean.app",
+    "https://octopus-app-p9wjm.ondigitalocean.app",
+    "octopus-app-p9wjm.ondigitalocean.app",
+]
 # ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
 
 # CORS_ALLOW_ALL_ORIGINS = True
 
-ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"]
 
 STATIC_URL = "static/"
 MEDIA_URL = "media/"
