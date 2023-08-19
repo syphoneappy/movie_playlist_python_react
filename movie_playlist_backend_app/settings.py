@@ -33,9 +33,9 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "http://127.0.0.1:8000",
     "127.0.0.1:8000",
-    "https://shark-app-teuhd.ondigitalocean.app",
-    "http://shark-app-teuhd.ondigitalocean.app",
-    "shark-app-teuhd.ondigitalocean.app"
+    "https://octopus-app-p9wjm.ondigitalocean.app/",
+    "https://octopus-app-p9wjm.ondigitalocean.app/",
+    "shark-app-teuhd.ondigitalocean.app",
 ]
 # ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
 
