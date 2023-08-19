@@ -119,7 +119,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://octopus-app-p9wjm.ondigitalocean.app",
-    "octopus-app-p9wjm.ondigitalocean.app",
+    "http://octopus-app-p9wjm.ondigitalocean.app",
 ]
 
 # Database
