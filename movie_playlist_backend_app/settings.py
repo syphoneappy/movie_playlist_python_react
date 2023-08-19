@@ -33,9 +33,8 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = [
     "http://127.0.0.1:8000",
     "127.0.0.1:8000",
-    "https://shark-app-teuhd.ondigitalocean.app",
-    "http://shark-app-teuhd.ondigitalocean.app",
-    "shark-app-teuhd.ondigitalocean.app"
+    "https://octopus-app-p9wjm.ondigitalocean.app",
+    "octopus-app-p9wjm.ondigitalocean.app",
 ]
 # ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
 
@@ -117,7 +116,11 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173","shark-app-teuhd.ondigitalocean.app"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://octopus-app-p9wjm.ondigitalocean.app",
+    "octopus-app-p9wjm.ondigitalocean.app",
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
